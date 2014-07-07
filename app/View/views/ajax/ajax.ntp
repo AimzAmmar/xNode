@@ -1,0 +1,10 @@
+<?php
+/**
+ * cyrish.
+ * User: Ahmed
+ * Date: 12/24/13
+ * Time: 11:38 PM
+ * 
+ */
+    echo $message;
+?>

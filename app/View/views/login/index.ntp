@@ -1,0 +1,70 @@
+<?php
+/**
+ * cyrish.
+ * User: Ahmed
+ * Date: 12/23/13
+ * Time: 12:03 AM
+ *
+ */
+?>
+<script type="text/javascript">
+    $(document).ready(function() {
+       $("#remember").click(function () {
+              if($(this).hasClass("glyphicon-unchecked")){
+                  $(this).removeClass("glyphicon-unchecked");
+                  $(this).addClass("glyphicon-check");
+                  $("#remfield").val("true");
+               } else {
+                  $(this).removeClass("glyphicon-check");
+                  $(this).addClass("glyphicon-unchecked");
+                  $("#remfield").val("false");
+              }
+       });
+        $("#remtxt").click(function (){
+            $("#remember").click();
+        });
+
+        $("#loginForm").submit(function (e) {
+            if($("#email").val() != "" && $("#password").val() != ""){
+                var formData = $(this).serialize();
+                $.ajax({
+                    url : '<?php echo $this->controller->request->requestURI; ?>',
+                    data : formData,
+                    method : 'post',
+                    success : function (data) {
+                        //redirect to the user page
+                        alert(data);
+                    }
+                });
+            } else {
+                $("#errormessage").html("Please enter both Email and Password");
+            }
+            e.preventDefault();
+        });
+    });
+</script>
+<div id="loginbox">
+    <div id="loginlogo"><?php echo $this->html->img('logo_48px.png'); ?></div>
+    <h4>Login To Cyrish</h4>
+    <div id="errormessage"></div>
+    <div>
+        <?php echo $this->form->form(array('id' => 'loginForm', 'onSubmit' => 'return false;')); ?>
+            <div class="iconInput">
+                <i class="glyphicon glyphicon-envelope"></i>
+                <?php echo $this->form->input('cyrishEmail', array('class' => 'form-control input-lg', 'id' => 'email', 'placeholder' => 'Email Address')); ?>
+            </div>
+            <div class="iconInput">
+                <i class="glyphicon glyphicon-lock"></i>
+                <?php echo $this->form->input('cyrishPassword', array('class' => 'form-control input-lg', 'type' => 'password', 'id' => 'password', 'placeholder' => 'Password')); ?>
+            </div>
+    <!--        <div>
+                <input type="hidden" value="false" id="remfield" name="remember">
+                <span class="glyphicon glyphicon-unchecked" id="remember"></span><span id="remtxt">Remember Me?</span>
+            </div>
+    -->
+            <?php echo $this->form->input('loginFormSubmit', array('class' => 'btn btn-primary btn-lg btn-block', 'value' => 'Login', 'type' => 'submit')); ?>
+
+            <div class="clearfix"></div>
+        <?php echo $this->form->end(); ?>
+    </div>
+</div>

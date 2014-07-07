@@ -1,0 +1,18 @@
+
+.iconInput{
+    position: relative;
+}
+.iconInput input{
+    padding-left: 35px;
+    color: inherit !important;
+}
+.iconInput i{
+    position: absolute;
+    padding: 18px 12px;
+    font-size: 100%;
+    pointer-events: none;
+    opacity: 0.5;
+}
+.dropdown-menu{
+    border-top: none !important;
+}

@@ -1,0 +1,36 @@
+<?php
+$controller = $this->controller->request->controller;
+$action = $this->controller->request->action;
+?>
+<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navigation">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+</button>
+<nav id="navigation" class="navbar-collapse collapse">
+    <ul class="nav navbar-nav nav-tabs" id="mainMenu">
+        <li class="<?php echo ($controller == 'user' && $action == 'index')?"active":""; ?>" >
+            <?php echo $this->html->anchor("Summary", array("controller" => "user", "action" => "index")); ?>
+        </li>
+        <li  class="dropdown <?php echo ($controller == 'store')?"active":""; ?>">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Store
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+            <?php echo $this->html->anchor('Information', array('controller' => 'store', 'action' => 'info', 'class' => ($controller == 'store' && $action == 'info')?"active":"")) ?></li>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Inventory</a></li>
+        <!--    <li><a href="#">Inventory</a></li>
+                <li><a href="#">Inventory</a></li>
+        -->     <li><a href="#">Reports</a></li>
+    </ul>
+    <ul class="nav navbar-nav pull-right" id="rightMenu">
+        <li><?php echo $this->html->anchor('Account', array('controller' => 'user', 'action' => 'account')); ?></li>
+        <li class=""><a href="#">Logout</a></li>
+    </ul>
+</nav>

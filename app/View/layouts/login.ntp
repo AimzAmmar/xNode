@@ -1,0 +1,27 @@
+<?php echo $this->html->docType('html5') ?>
+<head>
+    <?php echo $this->html->charset(); ?>
+    <title><?php echo $this->title; ?></title>
+    <?php
+    echo $this->html->meta('icon', true);
+    echo $this->html->meta(array('http-equiv' => 'X-UA-Compatible', 'content' => 'IE=edge'), true);
+    echo $this->html->meta(array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0'), true);
+    echo $this->html->css('fonts', true);
+    echo $this->html->css('bootstrap/css/bootstrap.min.css', true);
+    echo $this->html->css('bootstrap/css/cyrish-bootstrap.css', true);
+    echo $this->html->css('elements', true);
+    echo $this->html->css('login', true);
+    echo $this->html->css('bootstrap/css/bootstrap-ie7.css', true, array('condition' => 'lt IE 8'));
+    echo $this->html->script('jquery', true);
+    echo $this->html->script('bootstrap', true);
+    echo $this->html->fetch('meta');
+    echo $this->html->fetch('css');
+    echo $this->html->fetch('script');
+ ?>
+</head>
+<body>
+    <section id="content" class="container">
+        <?php echo $content; ?>
+    </section>
+</body>
+</html>

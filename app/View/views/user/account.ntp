@@ -1,0 +1,11 @@
+<?php
+/**
+ * cyrish.
+ * User: Ahmed
+ * Date: 12/28/13
+ * Time: 5:05 PM
+ * 
+ */
+
+echo $query;
+?>

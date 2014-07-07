@@ -1,0 +1,73 @@
+<?php echo $this->html->docType('html5') ?>
+<head>
+	<?php echo $this->html->charset(); ?>
+	<title>
+		<?php echo $this->title; ?>
+	</title>
+	<?php
+		echo $this->html->meta('icon');
+                                echo $this->html->css('styles');
+                                echo $this->html->css('default');
+                                 echo $this->html->css('elements');
+                                echo $this->html->script('jquery');
+                                echo $this->html->script('jquery-ui');
+                                echo $this->html->css("ui/jquery.ui.all");
+                                echo $this->html->script('common');
+                                echo $this->fetch('meta');
+                                echo $this->fetch('css');
+    ?>
+    <script>
+        $(function() {
+		$( document ).tooltip({
+                    track : true
+                });
+	});
+
+         $(function() {
+		$( "#dialog-message" ).dialog({
+			modal: true,
+			buttons: {
+				Ok: function() {
+					$( this ).dialog( "close" );
+				}
+			},
+                        autoOpen: false,
+                        hide: "fade",
+                        show : "slide",
+                        closeOnEscape: true,
+                        Height:0,
+                        minWidth: 500,
+                        close: function( event, ui ) { 
+                       $("#dialog-message .message").html("<img src='<?php echo Configure::read("site.url") ?>img/ajax-loader.gif' style='max-height: 100px; max-width: 200px;' />"); 
+                       $("#dialog-message").dialog({height : 230});
+                }
+		});
+	});
+    </script>
+</head>
+<body>
+<?php
+    if(isset($dialogue)){
+        echo $dialogue;
+    }
+?>
+<!-- Header -->
+<?php echo $this->element('usermenu'); ?>
+<!-- Slider -->
+<!-- Content -->
+<div class="inner" align="center">
+    <section id="content">
+	<?php echo $this->fetch('content'); ?>
+    </section>
+</div>
+<!-- Footer -->
+<?php echo $this->element("footer"); ?>
+
+<div id="dialog-message" title="">
+	<p align='center'>
+        <span class="message"> <?php echo $this->html->image('ajax-loader.gif', array('id' => 'msgload')); ?> </span>
+	</p>
+</div>
+<img src='<?php echo Configure::read('site.url'); ?>img/ajax-loader.gif' style='height:15px; display:none;' />
+</body>
+</html>

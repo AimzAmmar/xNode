@@ -1,0 +1,7 @@
+<?php
+echo "in alpha file var name : ".$name. "<br />";
+echo $_SERVER["ORIG_PATH_INFO"];
+?>
+<hr />
+<?php
+?>

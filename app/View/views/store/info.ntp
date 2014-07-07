@@ -1,0 +1,12 @@
+<?php
+/**
+ * cyrish.
+ * User: Ahmed
+ * Date: 1/2/14
+ * Time: 7:38 AM
+ * 
+ */
+
+echo $this->form->generateForm('Store');
+
+?>

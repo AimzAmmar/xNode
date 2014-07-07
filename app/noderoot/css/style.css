@@ -1,0 +1,54 @@
+html,body{
+    height: 100%;
+}
+header{
+    height: 70px;
+}
+.gridContainer{
+    padding: 0px 15px;
+}
+#wrapper{
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+#footer{
+    height: 60px;
+    background: #000000;
+}
+header .nav li.active a{
+    font-weight: 700;
+}
+header .nav li a{
+    font-size: 100%;
+}
+header nav .nav-tabs{
+    padding-top: 5px;
+    border-bottom: none !important;
+    margin-bottom: -1px;
+}
+header nav .nav-tabs li a:hover, header nav .nav-tabs li.active a,header nav .nav-tabs li.open a, #navigation ul li .open{
+    background: white !important;
+    color: black !important;
+    font-weight: 400;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    border-bottom: none !important;
+}
+#navigation ul li .open ul li{
+
+}
+.open .dropdown-menu li a:hover, .open .dropdown-menu li a.active{
+    background-color: #EEEEEE !important;
+}
+#leftMenu{
+}
+#leftTop{
+    height: 100px;
+}
+#navigation{
+}
+#rightMenu{
+    margin-top: 5px;
+}
